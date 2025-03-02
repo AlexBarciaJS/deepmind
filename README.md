@@ -13,10 +13,9 @@ Run FastApi
 
 uvicorn main:app --reload
 
-/
-sudo apt install npm
 
-cd vuemind
-npm install
-npm run format
+Create VueMind
+donwnload https://github.com/creativetimofficial/vue-material-dashboard
+cd vue-material-dashboard/
+npm i
 npm run dev
