@@ -2,7 +2,7 @@
 
 Create the project
 
-cd fastapi/
+fastapi/
 sudo apt update && sudo apt install python3-venv -y
 python3 -m venv venv
 source venv/bin/activate
@@ -13,3 +13,10 @@ Run FastApi
 
 uvicorn main:app --reload
 
+/
+sudo apt install npm
+
+cd vuemind
+npm install
+npm run format
+npm run dev
