@@ -1,11 +1,11 @@
 from fastapi import FastAPI
-import uvicorn
+from controller.brain import router as brain_router  # Importar el router
 
 app = FastAPI()
 
+# Incluir el router de brain.py
+app.include_router(brain_router, prefix="/brain", tags=["Brain"])
+
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    return {"message": "API con FastAPI, LangChain y PostgreSQL"}

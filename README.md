@@ -1,5 +1,10 @@
 # deepmind
 
+📦 Ubuntu
+sudo apt update && sudo apt install -y libpq-dev python3-dev build-essential
+
+
+
 🐳 Postgres Docker
 
 /
@@ -29,12 +34,11 @@ Haz clic en "Save" y ya estarás conectado.
 
 fastapi/
 sudo apt update && sudo apt install python3-venv -y
-python3 -m venv venv
-source venv/bin/activate
-pip install fastapi uvicorn
-pip install poetry
+sudo apt install python3-poetry
 poetry init
 poetry add fastapi uvicorn psycopg2-binary
+poetry env use python3
+poetry install
 
 🚀
 poetry run uvicorn main:app --reload
