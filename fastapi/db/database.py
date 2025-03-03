@@ -1,14 +1,14 @@
 import os
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
-from langchain.sql_database import SQLDatabase
+from sqlalchemy.orm import sessionmaker
 
 # Cargar variables de entorno
 load_dotenv()
 
-# Configurar conexión a PostgreSQL
+# Obtener la URL de la base de datos desde el .env
 DATABASE_URL = os.getenv("DATABASE_URL")
-engine = create_engine(DATABASE_URL)
 
-# Inicializar LangChain con la base de datos
-db = SQLDatabase(engine)
+# Crear la conexión
+engine = create_engine(DATABASE_URL, pool_recycle=3600)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
