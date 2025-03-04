@@ -1,7 +1,8 @@
 version: '3.8'
 
 services:
-  db:
+  # 🔹 Base de datos PostgreSQL
+  postgres:
     image: postgres:latest
     container_name: postgres-db
     restart: always
@@ -14,6 +15,7 @@ services:
     ports:
       - "5432:5432"
 
+  # 🔹 Admin de PostgreSQL (PGAdmin)
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
@@ -24,7 +26,23 @@ services:
     ports:
       - "5050:80"
     depends_on:
-      - db
+      - postgres
+
+  # 🔹 Base de datos MySQL
+  mysql:
+    image: mysql:latest
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_DATABASE: mydatabase
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
 
 volumes:
   pg_data:
+  mysql_data:
