@@ -29,7 +29,7 @@ export default {
 .chat-container {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* Centra horizontalmente */
+  align-items: center; /* Centra horizontalmente */
   justify-content: space-between; /* Distribuye 80% arriba y 20% abajo */
   height: 80vh; /* Ocupa toda la pantalla */
   width: 100%;

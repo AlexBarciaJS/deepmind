@@ -1,7 +1,6 @@
 <template>
   <form>
     <md-card>
-
       <md-card-content>
         <div class="md-layout">
           <div class="md-layout-item md-size-100">
@@ -31,8 +30,7 @@ export default {
   },
   data() {
     return {
-      aboutme:
-        "",
+      aboutme: "",
     };
   },
 };
