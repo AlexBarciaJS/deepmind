@@ -4,17 +4,19 @@ from openai import OpenAI
 from config import settings
 
 # Initialize OpenAI client
-openai_client = OpenAI(api_key=settings.OPENAI_API_KEY)
+openai_client = openai.OpenAI(api_key=settings.OPENAI_API_KEY)
 
-def generate_embedding(text):
-    """Generates an embedding for the given text using the OpenAI API."""
-    client = openai.OpenAI(api_key=settings.OPENAI_API_KEY)
-    response = client.embeddings.create(
+async def generate_embedding(text):
+    """
+    Generates an embedding for the given text using OpenAI's latest API.
+    """
+    response = openai_client.embeddings.create(
         input=text,
         model="text-embedding-3-small"
     )
-    print(f"Generated text embedding: {text[:50]}...", response.data[0].embedding[:10])
-    return response.data[0].embedding
+
+    return response.data[0].embedding  # ✅ Updated for OpenAI's new API
+
 
 def create_embeddings(chunks):
     """
