@@ -22,6 +22,13 @@ requests = "^2.32.3"
 langchain-community = "^0.3.18"
 mysql-connector-python = "^9.2.0"
 pydantic = "^2.10.6"
+pypdf2 = "^3.0.1"
+pymongo = "^4.11.2"
+aiofiles = "^24.1.0"
+motor = "^3.7.0"
+pinecone = "^6.0.1"
+fitz = "^0.0.1.dev2"
+pymupdf = "^1.25.3"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

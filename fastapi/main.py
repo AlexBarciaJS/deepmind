@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from controller.chat import router as chat_router
+from controller.ingestion import router as ingestion_router
 
 app = FastAPI()
 
@@ -15,6 +16,7 @@ app.add_middleware(
 
 # Include brain.py in router
 app.include_router(chat_router, prefix="/chat", tags=["Chat"])
+app.include_router(ingestion_router, prefix="/ingestion", tags=["Ingestion"])
 
 @app.get("/")
 def read_root():
