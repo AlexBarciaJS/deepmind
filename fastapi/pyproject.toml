@@ -21,6 +21,7 @@ langchain-openai = "^0.3.7"
 requests = "^2.32.3"
 langchain-community = "^0.3.18"
 mysql-connector-python = "^9.2.0"
+pydantic = "^2.10.6"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

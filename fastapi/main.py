@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from controller.brain import router as brain_router  # Importar el router
+from controller.chat import router as chat_router
 
 app = FastAPI()
 
@@ -13,8 +13,8 @@ app.add_middleware(
     allow_headers=["*"],  # Allow all headers
 )
 
-# Incluir el router de brain.py
-app.include_router(brain_router, prefix="/brain", tags=["Brain"])
+# Include brain.py in router
+app.include_router(chat_router, prefix="/chat", tags=["Chat"])
 
 @app.get("/")
 def read_root():
