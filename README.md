@@ -52,7 +52,19 @@ npm i
 npm run dev
 
 
+📌 ## Setting up the Llama 3.2 Model
 
+1. Make sure Docker and Docker Compose are installed.
+2. Run the following command to download the Llama 3.2 model:
+
+```bash
+docker compose exec ollama ollama pull llama3.2
+```
+
+3. Execute the following command to download the embedding model:
+```bash
+ docker compose exec ollama ollama pull mxbai-embed-large
+```
 
 
 
