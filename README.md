@@ -44,11 +44,14 @@ poetry install
 poetry run uvicorn main:app --reload
 
 
-📦 VueMind
+📦 🟡 Nest-API
+pnpm i
+pnpm run start
+
+📦 🟢 VueMind
 donwnload https://github.com/creativetimofficial/vue-material-dashboard
 cd vue-material-dashboard/
 npm i
-🚀 
 npm run dev
 
 
@@ -67,7 +70,7 @@ docker compose exec ollama ollama pull llama3.2
 ```
 
 
-
+🔥
 🚀 Inicio rápido
 🐳 Docker & Containers
 🗄️ Base de Datos
@@ -82,3 +85,15 @@ docker compose exec ollama ollama pull llama3.2
 🌍 Acceder a pgAdmin
 🔑 Credenciales
 ✨ Starts
+Errores y Problemas
+🛑 ❌ ⚠️ 🚨 💥
+Logs y Consola
+📜 🖥️ 📝 🧐 🛠️
+Proceso de Depuración
+🔍 🔎 🕵️‍♂️ 🔬 ⚙️
+Estado del Código
+🟢 🟡 🔴 🏁 🔄
+Solución de Problemas
+🧩 🛠️ 🎯 ✅ 🔑
+Optimización y Rendimiento
+🚀 ⚡ 🔧 📈 ⏳
