@@ -4,7 +4,7 @@ export const useMainStore = defineStore('main', {
   state: () => ({
     counter: 0,
     chatMessage: '',
-    messages: [] as { id: number; text: string }[]
+    messages: [] as { id: number; question: string; response: string }[]
   }),
   actions: {
     increment() {
@@ -13,7 +13,7 @@ export const useMainStore = defineStore('main', {
     setChatMessage(message: string) {
       this.chatMessage = message;
     },
-    addMessage(message: { id: number; text: string }) {
+    addMessage(message: { id: number; question: string; response: string }) {
       this.messages.push(message);
     }
   }
