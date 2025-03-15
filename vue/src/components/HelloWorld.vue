@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useMainStore } from '../store';
-import { fetchPosts } from '../services/apiService';
-
+import { sendChatMessage } from '../services/apiService';
 
 const store = useMainStore();
 defineProps<{ msg: string }>()
@@ -11,29 +10,32 @@ const count = ref(0)
 const posts = ref<{ id: number; title: string; body: string }[]>([]);
 const loading = ref(true);
 
-onMounted(async () => {
+const handleSendMessage = async () => {
   try {
-    posts.value = await fetchPosts();
+    const response = await sendChatMessage(store.chatMessage);
+    console.log('Message sent:', response);
+    // Optionally, you can update the store with the response
+    store.messages.push({ id: Date.now(), text: response.answer });
   } catch (error) {
-    console.error('Failed to fetch posts');
-  } finally {
-    loading.value = false;
+    console.error('Failed to send message');
   }
-});
+};
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
-    <p>Counter: {{ store.counter }}</p>
-    <button class="btn btn-primary" @click="store.increment">Increment</button>
+    <p>Chat</p>
+    <input type="text" v-model="store.chatMessage" />
+    <button class="btn btn-primary" @click="handleSendMessage">Send</button>
+    <ul>
+      <li v-for="message in store.messages" :key="message.id">
+        {{ message.text }}
+      </li>
+    </ul>
   </div>
+
   <div class="container mt-4">
     <h2 class="text-primary">Posts</h2>
     <div v-if="loading">Loading...</div>
