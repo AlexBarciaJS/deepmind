@@ -31,13 +31,17 @@ const handleSendMessage = async () => {
     <ul>
       <li v-for="message in store.messages" :key="message.id">
         <div calss="chat">
-          <span class="question">
-            {{ message.question }}
-          </span>
+          <div class="question">
+            <span>
+              {{ message.question }}
+            </span>
+          </div>
           <br>
-          <span class="response">
-            {{ message.response }}
-          </span>
+          <div  class="response">
+            <span>
+              {{ message.response }}
+            </span>
+          </div>
         </div>
       </li>
     </ul>
@@ -60,9 +64,11 @@ const handleSendMessage = async () => {
 
 .question {
   font-weight: bold;
+  text-align: left;
 }
 
 .response {
   font-style: italic;
+  text-align: right;
 }
 </style>
